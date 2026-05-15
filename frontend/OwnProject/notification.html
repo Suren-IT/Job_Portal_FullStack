@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>notification</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+     <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navBar">
+        <div class="navleft">
+            <a href=""><i class="fa-solid fa-sun"></i></a>
+        </div>
+        <div class="navcenter">
+            <input type="text" name="searchbyJob" id="searchbyJob" placeholder="Search your job ">
+            <button id="icon1"><i class="fa-solid fa-magnifying-glass"></i></button>
+
+        </div>
+        <div class="navrightside">
+
+            <a href="home.html"><i class="fa-solid fa-house"></i></a>
+            <a href="notification.html"><i class="fa-solid fa-bell"></i></a>
+            <a href="profile.html"><i class="fa-solid fa-user"></i></a>
+            <a href="register.html">register</a>
+            <a href="login.html">login</a>
+            
+        </div>
+    </div>
+
+    <!-- first show notification dialoge  -->
+     <div class="notification">
+        <div class="notifi-head">
+            <h3>Notification</h3>
+        </div>
+        <div class="notifi-body">
+            <div class="first-grid">
+                    <p id="notifipart" style="color: white;">this is your notification </p>
+            </div>
+
+        </div>
+     </div>
+
+</body>
+<script>
+        let userEmail = localStorage.getItem("userEmail");
+         fetch(`http://localhost:8080/email/${userEmail}`)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("notifipart").innerHTML += "congrats you have applied jobs ";
+        })
+        .catch(error => {
+            console.error(error);
+            
+        });
+
+
+</script>
+</html>

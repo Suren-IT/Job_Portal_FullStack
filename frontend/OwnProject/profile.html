@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+     <link rel="stylesheet" href="style.css">
+     <title>profile</title>
+</head>
+<body>
+    
+    <div class="navBar">
+        <div class="navleft">
+            <a href=""><i class="fa-solid fa-sun"></i></a>
+        </div>
+        <div class="navcenter">
+            <input type="text" name="searchbyJob" id="searchbyJob" placeholder="Search your job ">
+            <button id="icon1"><i class="fa-solid fa-magnifying-glass"></i></button>
+
+        </div>
+        <div class="navrightside">
+
+            <a href="home.html"><i class="fa-solid fa-house"></i></a>
+            <a href="notification.html"><i class="fa-solid fa-bell"></i></a>
+            <a href="profile.html"><i class="fa-solid fa-user"></i></a>
+            <a href="register.html">register</a>
+            <a href="login.html">login</a>
+            
+        </div>
+    </div>
+
+    <div class="profile">
+        <div class="profile-pic">
+            <img src="https://i.pinimg.com/originals/54/72/d1/5472d1b09d3d724228109d381d617326.jpg" alt="userprofile">
+        </div>
+        <div class="profile-details">
+            <p id="username">User Name :</p>
+            <p id="email">Email : </p>
+            <p id="contact">Contact : </p>      
+            <button type="submit" >Logout</button>
+        </div>
+    </div>
+    <script>
+
+
+        let userEmail = localStorage.getItem("userEmail");
+
+        console.log(userEmail);
+        if (!userEmail) {
+            alert("User not logged in");
+            window.location.href = "login.html";
+        }
+
+        fetch(`http://localhost:8080/email/${userEmail}`)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("username").innerHTML += data.name;
+            document.getElementById("email").innerHTML += data.email;
+            document.getElementById("contact").innerHTML += data.contact;
+        })
+        .catch(error => {
+            console.error(error);
+            alert("Something went wrong");
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="navBar">
+        <div class="navleft">
+            <a href=""><i class="fa-solid fa-sun"></i></a>
+        </div>
+        <div class="navcenter">
+            <input type="text" name="searchbyJob" id="searchbyJob" placeholder="Search your job ">
+            <button id="icon1"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+        <div class="navrightside">
+            <a href="home.html"><i class="fa-solid fa-house"></i></a>
+            <a href="notification.html"><i class="fa-solid fa-bell"></i></a>
+            <a href="profile.html"><i class="fa-solid fa-user"></i></a>
+            <a href="register.html">register</a>
+            <a href="login.html">login</a>
+        </div>
+    </div>
+    
+    <div class="loginbackground">
+        <h1>Admin form</h1>
+
+        <form action="" class="loginform" method="post">
+
+            <label for="adminid" id="email">Enter your Id</label>
+            <input type="text" name="adminid" id="admininput"><br>
+
+            <label for="password" id="emailpass">Enter your password</label>
+            <input type="password" name="password" id="adminpassword"><br>
+                
+             
+        </form>
+        <button type="submit" id="loginbtn" >SUBMIT</button>
+    </div>
+
+</body>
+
+<script>
+
+    let loginbtn = document.getElementById("loginbtn");
+
+    loginbtn.addEventListener("click", function(e) {
+    e.preventDefault();
+
+    let adminid = document.getElementById("admininput").value;
+    let password = document.getElementById("adminpassword").value;
+
+
+    //store the email on localStorage Item 
+//    localStorage.setItem("userEmail",email); 
+
+    if(adminid === "" || password === ""){
+        alert("enter id and password");
+        return;
+    }
+
+    
+
+    fetch("http://localhost:8080/adminlogin", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: `adminid=${encodeURIComponent(adminid)}&password=${encodeURIComponent(password)}`
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data === true) {
+            window.location.href = "jobregister.html";
+        } else {
+            alert("Invalid information");
+        }
+    })
+    .catch(error => console.error(error));
+});
+        
+    
+    
+</script>
+
+</html>

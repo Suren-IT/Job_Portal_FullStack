@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobregister</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="navBar">
+        <div class="navleft">
+            <a href=""><i class="fa-solid fa-sun"></i></a>
+        </div>
+
+        <div class="navcenter">
+            <input type="text" name="searchbyJob" id="searchbyJob" placeholder="Search your job ">
+            <button id="icon1"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+
+        <div class="navrightside">
+            <a href="home.html"><i class="fa-solid fa-house"></i></a>
+            <a href="notification.html"><i class="fa-solid fa-bell"></i></a>
+            <a href="profile.html"><i class="fa-solid fa-user"></i></a>
+            <a href="register.html">register</a>
+            <a href="login.html">login</a>
+        </div>
+    </div>
+    
+    <div class="registration">     
+        <p>Register User</p>
+
+        <!-- FORM -->
+        <form id="registerForm" class="register">
+            <table>
+
+                <tr>
+                    <td><label for="jobname">Enter your job name</label></td>
+                    <td><input type="text" name="jobname" id="jobname"></td>
+                </tr>
+
+                <tr>
+                    <td><label for="jobskill">job skill</label></td>
+                    <td><input type="text" name="jobskills" id="jobskills"></td>
+                </tr>
+
+                <tr>
+                    <td><label for="jobpackage">job package </label></td>
+                    <td><input type="text" name="jobpackage" id="jobpackage"></td>
+                </tr>
+
+                <tr>
+                    <td><button type="submit" id="registerbtn">Submit</button></td>
+                </tr>
+
+            </table>
+        </form>
+    </div>
+
+</body>
+
+<script>
+
+    let form = document.getElementById("registerbtn");
+
+    form.addEventListener("click", function(e) {
+    e.preventDefault();
+
+    let name = document.getElementById("jobname").value;
+    let jobskills = document.getElementById("jobskills").value;
+    let jobpackage = document.getElementById("jobpackage").value;
+
+    if(name === "" || jobskills === "" || jobpackage === "" ){
+        alert("enter all fields");
+        return;
+    }
+
+    fetch("http://localhost:8080/registerjob", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            jobName: name,
+            jobSkills: jobskills,
+            jobPackage: jobpackage
+          
+        })
+    })
+    .then(response => response.json()) // 
+    .then(data => {
+        if(data === true){
+            alert("Successfully registered");
+
+            window.location.href = "login.html";
+        } else {
+            
+            alert("Registration failed");
+        }
+    })
+    .catch(error => {
+        // console.error(error);
+        alert("Something went wrong");
+    });
+});
+
+
+</script>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Userregister</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="navBar">
+        <div class="navleft">
+            <a href=""><i class="fa-solid fa-sun"></i></a>
+        </div>
+
+        <div class="navcenter">
+            <input type="text" name="searchbyJob" id="searchbyJob" placeholder="Search your job ">
+            <button id="icon1"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+
+        <div class="navrightside">
+            <a href="home.html"><i class="fa-solid fa-house"></i></a>
+            <a href="notification.html"><i class="fa-solid fa-bell"></i></a>
+            <a href="profile.html"><i class="fa-solid fa-user"></i></a>
+            <a href="register.html">register</a>
+            <a href="login.html">login</a>
+        </div>
+    </div>
+    
+    <div class="registration">     
+        <p>Register User</p>
+
+        <!-- FORM -->
+        <form id="registerForm" class="register">
+            <table>
+
+                <tr>
+                    <td><label for="name">Enter your name</label></td>
+                    <td><input type="text" name="name" id="name"></td>
+                </tr>
+
+                <tr>
+                    <td><label for="contact">Enter your contact</label></td>
+                    <td><input type="number" name="contact" id="contact"></td>
+                </tr>
+
+                <tr>
+                    <td><label for="email">Enter your email</label></td>
+                    <td><input type="email" name="email" id="email"></td>
+                </tr>
+
+                <tr>
+                    <td><label for="password">Enter your password</label></td>
+                    <td><input type="password" name="password" id="password"></td>
+                </tr>
+
+                <tr>
+                    <td><button type="submit" id="registerbtn">Submit</button></td>
+                </tr>
+
+            </table>
+        </form>
+    </div>
+
+</body>
+
+<script>
+
+    let form = document.getElementById("registerForm");
+
+form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let contact = Number(document.getElementById("contact").value);
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+
+    if(name === "" || contact === "" || email === "" || password === ""){
+        alert("enter all fields");
+        return;
+    }
+
+    fetch("http://localhost:8080/register", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            name: name,
+            contact: contact,
+            email: email,
+            password: password
+        })
+    })
+    .then(response => response.json()) // ✅ because backend returns boolean
+    .then(data => {
+        if(data === true){
+            alert("Successfully registered");
+            window.location.href = "login.html";
+        } else {
+            alert("Registration failed");
+        }
+    })
+    .catch(error => {
+        console.error(error);
+        alert("Something went wrong");
+    });
+});
+
+
+</script>
+
+</html>
