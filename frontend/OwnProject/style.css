@@ -1,384 +1,368 @@
-/* this is css design  */
-/* universal */
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ==========================================
+   GLOBAL IMPROVEMENTS
+========================================== */
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
 }
-/* nav Bar design  */
+
+a{
+    transition: 0.3s;
+}
+
+button{
+    transition: 0.3s;
+}
+
+button:hover{
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   NAVBAR
+========================================== */
+
 .navBar{
+    min-height: 70px;
     display: flex;
-    height: 38px;
-    width: 100%;
-    padding: 5px;
-    flex-direction: row;
+    align-items: center;
     justify-content: space-between;
-
-    /* border-bottom: 1px solid red; */
+    padding: 15px 5%;
+    background: white;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
-.navleft{
-    padding: 5px;
 
+.navleft i{
+    font-size: 24px;
+    color: #0077ff;
+}
+
+.navcenter{
+    position: relative;
 }
 
 .navcenter > input{
-    width:300px;
-    height: 30px;
-    border-radius: 12px;
-    box-shadow: 2px 2px 5px rgba(55, 3, 3, 0.295);
-    border-style: none;
-    padding-right: 20px;
-    padding-left: 20px;
-    outline: none;
-    position: relative;
-    left: 40px;
-    display: flex;
-    
-}
-.navcenter > button{
-    position: relative;
-    top: -25px;
-    left: 300px;
-    padding: 5px;
-    border-radius: 3px;
-    display: flex;
-    height: 20px;
-    width: 20px; 
+    width: 400px;
+    max-width: 100%;
+    height: 45px;
+    border-radius: 30px;
     border: none;
-    background-color: white;
-
-
+    padding: 0 50px 0 20px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.15);
+    left: 0;
 }
-.navcenter > button:hover{
-    transform: scale(1.3);
-    color: aqua;
-    cursor: pointer;
 
+.navcenter > button{
+    position: absolute;
+    right: 15px;
+    top: 12px;
+    left: auto;
+    background: transparent;
 }
 
 .navrightside{
-    position: relative;
-    display: inline-block;
-    height: 100%;
-    width: 300px;
-    gap: 40px;
-    /* border: 1px solid red; */
-    padding: 5px;
-}
-.navrightside > a > i{
-    padding-left: 30px;
-    border-radius: 12px;
-}
-
-.navrightside > a {
-    padding-left: 7px;
-    text-decoration: none;
-}
-
-
-.navicationbar{
+    width: auto;
     display: flex;
-    flex-direction: column;
-    width: 100px;
-    height: 100vh;
-    /* border: 1px solid red ; */
-    background-color: lightsteelblue;
-}
-.navicationbar a{
-   padding-top: 30px;
-   text-decoration: none;
-   color: black;
-   padding: 10px;
-   
-}
-.mainBody{
-    width: 100vw;
-    min-height: 100vh;
-    background-image: url("https://png.pngtree.com/background/20250130/original/pngtree-exploring-career-opportunities-woman-scanning-online-job-portal-for-employment-prospects-picture-image_12556523.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    
-    /* border: 1px solid red; */
-}
-.mainBody > .mainHead> #jobroleheading{
-    width: 400px;
-    /* border: 1px solid rebeccapurple; */
-    padding: 20px;
-    position: relative;
     align-items: center;
-    justify-content: center;
-    left: 350px;
-    color: white;
+    gap: 20px;
+}
+
+.navrightside a{
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+.navrightside a:hover{
+    color: #0077ff;
+}
+
+.navrightside i{
+    font-size: 18px;
+}
+
+/* ==========================================
+   HOME PAGE
+========================================== */
+
+.mainBody{
+    min-height: calc(100vh - 70px);
+}
+
+.mainBody > .mainHead > #jobroleheading{
+    width: 100%;
+    text-align: center;
+    left: 0;
+    padding-top: 40px;
+    font-size: 2rem;
+    font-weight: bold;
 }
 
 .mainBody > .jobspecification{
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    /* border: 1px solid red ; */
-    height: fit-content;
-    width: 100vw;
-    display: grid;
-    grid-template-columns: 1fr;
-    padding: 20px;
-   
-    
-    
+    gap: 20px;
+    padding: 40px 20px;
 }
+
 .mainBody > .jobspecification > .jobs{
-    border-bottom: 1px solid black;
-    height: 120px;
-    width: 50%;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    left: 200px; 
-    padding: 20px;
-    top: 0;
-     background-color: lightcyan;
-    background-repeat: no-repeat;
-    background-size: cover;
-    opacity: 90%;
-}
-
-.mainBody > .jobspecification > .jobs > h5,h6{
-    /* border: 1px solid red; */
-    width: 100%;
-    height: 25px;
-    align-items: center;
-    justify-content: center;
-} 
-
-.mainBody > .jobspecification > .jobs > button {
-
-    width: 100%;
-    height: 25px;
-    align-items: center;
-    justify-content: center;
-    width: fit-content;
-    height: fit-content;
-    border-radius: 6px;
-    border:none;
-    position: relative;
-    top: 0;
-    font-size: small;
-    cursor: pointer;
-}
-
-.showmore > button{
-     
-    border-radius: 12px;
-    height: 20px;
+    width: 90%;
+    max-width: 850px;
+    min-height: 160px;
+    left: 0;
+    border-radius: 15px;
+    padding: 25px;
     border: none;
-    outline: none;
-    width: 70px;
-    cursor: pointer;
-
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    transition: 0.3s;
 }
 
+.mainBody > .jobspecification > .jobs:hover{
+    transform: translateY(-5px);
+}
 
-/* Login page  */
+.mainBody > .jobspecification > .jobs button{
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #0077ff;
+    color: white;
+    
+    
+}
+
+.mainBody > .jobspecification > .jobs button:hover{
+    background: #005ed1;
+}
+
+.showmore{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.showmore button{
+    width: 120px;
+    height: 40px;
+    background: #0077ff;
+    color: white;
+}
+
+/* ==========================================
+   LOGIN / ADMIN LOGIN
+========================================== */
 
 .loginbackground{
-    background: lightseagreen;
-    width: 100vw;
-    height: 100vh;
-
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 80px;
 }
 
 .loginbackground > h1{
-    color: white;
-    align-items: center;
-    justify-content: center;
-    padding: 5px;
-    position: relative;
-    left: 35%;
-    top: 100px;
+    left: 0;
+    top: 0;
+    margin-bottom: 30px;
 }
 
-.loginform {
-    
-    height: 300px;
-    width: 300px;
-    border: 1px solid red;
-    align-items: center;
-    justify-content: center;
-    padding: 50px;
-    position: relative;
-    top: 100px;
-    left: 300px;
-    background:lightblue;
-
-}
-.loginform >  #email{
-    padding: 30px; 
-
+.loginform{
+    width: 95%;
+    max-width: 450px;
+    height: auto;
+    left: 0;
+    top: 0;
+    padding: 35px;
+    border: none;
+    border-radius: 15px;
+    background: white;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-.loginform > #admininput{
-    padding: 8px;
-    position: relative;
-    top: 10px;
+.loginform input{
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
 }
 
-.loginform > #emailpass{
-
-    padding: 20px;
-    position: relative;
-    top: 20px;
-
-}
-.loginform > #emailinput{
-    padding: 8px;
-    position: relative;
-    top: 10px;
-}
-
-.loginform > #adminpassword{
-    padding: 10px;
-    position: relative;
-    top: 30px;
-}
-.loginform > #emailpassword{
-    padding: 10px;
-    position: relative;
-    top: 30px;
-}
 .loginbackground > button{
-    height: 30px;
-    width: 70px;
-    border-radius: 12px;
-    border: none;
-    cursor: pointer;
-
-}
-.loginbackground  a{
-    position: relative;
-    left: 30%;
-    top: 50px;
-    text-decoration: none;
+    margin-top: 20px;
+    width: 150px;
+    height: 45px;
+    left: 0;
 }
 
-button {
-    position: relative;
+.loginbackground a{
+    left: 0;
     top: 20px;
-    left: 40%;
+    margin: 10px;
 }
 
+/* ==========================================
+   REGISTER PAGE
+========================================== */
 
-/* Notification */
-.notification{
-    height: 100vh;
-    width: 100vw;
-    /* border: 1px solid red; */
-    background-image: url("https://png.pngtree.com/thumb_back/fh260/back_pic/03/76/37/2257bea537b28e6.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.notification > .notifi-head{
-    align-items: center;
-    justify-content: center;
-     /* border: 1px solid red; */
-     padding: 10px;
-
-}
-.notifi-head > h3{
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    position: relative;
-    right: 100px;
-    color: white;
-}
-.notifi-body{
-    align-items: center;
-    justify-content: center;
-}
-.first-grid{
-    padding: 10px;
-}
-.first-grid > p{
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    position: relative;
-    right: 150px;
-}
-
-/* Registration page  */
 .registration{
-    height: 100vh;
-    width: 100vw;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    background-color: lightgoldenrodyellow;
-}
-.register input{
-    padding: 10px;
-}
-.registration > p{
-    position: absolute;
-    top: 60px;
-    font-size: xx-large;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-}
-.register button{
-    height: 30px;
-    width: 100px;
-    border-radius: 12px;
-    border: none;
-    cursor: pointer;
-    position: relative;
-    top: 30px;
-    left: 0px;
+    min-height: 100vh;
+    flex-direction: column;
+    gap: 30px;
+    padding: 30px;
 }
 
+.registration > p{
+    position: static;
+    font-size: 2rem;
+}
+
+.register{
+    background: white;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+.register table{
+    width: 100%;
+}
+
+.register td{
+    padding: 10px;
+}
+
+.register input{
+    width: 100%;
+    min-width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.register button{
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* ==========================================
+   PROFILE
+========================================== */
 
 .profile{
-    display: flex;
-    justify-content:space-around;
-    border: 1px solid red;
-    height: 100vh;
-    width: 100vw;
-     background-image: url("https://th.bing.com/th/id/OIP.nibjsNxoR3RPO6SENnjIjAHaEp?w=276&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3");
-    background-size: cover;
-    background-repeat: no-repeat;
-
-}
-.profile-pic{
-    height: 100px;
-    width: 100px;
-   
-
-}
-.profile-pic > img{
-    height: 250px;
-    width:250px;
-    position: relative;
-    top: 50%;
-    border-radius: 50%;
-}
-.profile-details{
-    height: 250px;
-    width: 250px;
-    /* border: 1px solid red; */
-    position: relative;
-    top: 11%;
-    right: 30px;
-}
-.profile-details > p{
-    padding-top: 30px  ;
-}
-.profile-details > button{
-    border-radius: 12px;
-    height: 30px;
-    width: 70px;
     border: none;
-    cursor: pointer;
-    position: relative;
-    left: 40px;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 50px;
+    gap: 50px;
+}
 
+.profile-pic{
+    width: auto;
+    height: auto;
+}
+
+.profile-pic > img{
+    width: 250px;
+    height: 250px;
+    position: static;
+    object-fit: cover;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.profile-details{
+    position: static;
+    width: 400px;
+    max-width: 100%;
+    background: rgba(255,255,255,0.9);
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.profile-details p{
+    padding: 15px 0;
+    font-size: 18px;
+}
+
+.profile-details button{
+    left: 0;
+    width: 120px;
+}
+
+/* ==========================================
+   NOTIFICATION
+========================================== */
+
+.notification{
+    min-height: 100vh;
+    padding: 40px;
+}
+
+.notifi-head h3{
+    right: 0;
+    font-size: 2rem;
+}
+
+.notifi-body{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.first-grid{
+    width: 90%;
+    max-width: 800px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+}
+
+.first-grid > p{
+    right: 0;
+    padding: 20px;
+    font-size: 18px;
+}
+
+/* ==========================================
+   MOBILE RESPONSIVE
+========================================== */
+
+@media (max-width: 768px){
+
+    .navBar{
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .navcenter{
+        width: 100%;
+    }
+
+    .navcenter input{
+        width: 100%;
+    }
+
+    .navrightside{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .register input{
+        min-width: 150px;
+    }
+
+    .profile{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-details{
+        width: 100%;
+    }
+
+    .mainBody > .mainHead > #jobroleheading{
+        font-size: 1.5rem;
+    }
 }
